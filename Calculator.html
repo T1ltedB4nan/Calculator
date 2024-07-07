@@ -1,50 +1,11 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Calculator</title>
-
-    <!-- Styling -->
-    <style>
-    	 body {
-            display: flex;
-            background-color: #4d4d4d;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        table {
-            border: 5px solid black;
-            border-radius: 5px;
-            background-color: #1a1a1a;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        input[type="button"] {
-            width: 100%;
-            padding: 20px 40px;
-            background-color: #e28743;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-        }
-
-        input[type="text"] {
-            padding: 20px 30px;
-            background-color: #aaaaaa;
-            font-size: 24px;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-            border: 2px solid black;
-            width: 84%;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="css.css">
 </head>
 
 <body>
@@ -55,56 +16,37 @@
             <td colspan="3">
                 <input type="text" id="result">
             </td>
-            <td><input type="button" value="c" onclick="clearResult()"></td>
+            <td><input type="button" value="c" onclick="clearDisplay()"></td>
         </tr>
 
         <tr>
-            <td><input type="button" value="1" onclick="appendValue('1')"></td>
-            <td><input type="button" value="2" onclick="appendValue('2')"></td>
-            <td><input type="button" value="3" onclick="appendValue('3')"></td>
-            <td><input type="button" value="/" onclick="appendValue('/')"></td>
+            <td><input type="button" value="1" onclick="input('1')"></td>
+            <td><input type="button" value="2" onclick="input('2')"></td>
+            <td><input type="button" value="3" onclick="input('3')"></td>
+            <td><input type="button" value="/" onclick="operate('/')"></td>
         </tr>
         <tr>
-            <td><input type="button" value="4" onclick="appendValue('4')"></td>
-            <td><input type="button" value="5" onclick="appendValue('5')"></td>
-            <td><input type="button" value="6" onclick="appendValue('6')"></td>
-            <td><input type="button" value="*" onclick="appendValue('*')"></td>
+            <td><input type="button" value="4" onclick="input('4')"></td>
+            <td><input type="button" value="5" onclick="input('5')"></td>
+            <td><input type="button" value="6" onclick="input('6')"></td>
+            <td><input type="button" value="*" onclick="operate('*')"></td>
         </tr>
         <tr>
-            <td><input type="button" value="7" onclick="appendValue('7')"></td>
-            <td><input type="button" value="8" onclick="appendValue('8')"></td>
-            <td><input type="button" value="9" onclick="appendValue('9')"></td>
-            <td><input type="button" value="-" onclick="appendValue('-')"></td>
+            <td><input type="button" value="7" onclick="input('7')"></td>
+            <td><input type="button" value="8" onclick="input('8')"></td>
+            <td><input type="button" value="9" onclick="input('9')"></td>
+            <td><input type="button" value="-" onclick="operate('-')"></td>
         </tr>
         <tr>
-            <td><input type="button" value="0" onclick="appendValue('0')"></td>
-            <td><input type="button" value="." onclick="appendValue('.')"></td>
-            <td><input type="button" value="=" onclick="calculateResult()"></td>
-            <td><input type="button" value="+" onclick="appendValue('+')"></td>
+            <td><input type="button" value="0" onclick="input('0')"></td>
+            <td><input type="button" value="." onclick="input('.')"></td>
+            <td><input type="button" value="=" onclick="calculate()"></td>
+            <td><input type="button" value="+" onclick="operate('+')"></td>
         </tr>
     </table>
 
+    <script src="js.js"></script>
 
-    <!-- Java script -->
-
-    <script>
-        function appendValue(value) {
-            document.getElementById("result").value += value;
-        }
-
-        function clearResult() {
-            document.getElementById("result").value = "";
-        }
-
-        function calculateResult() {
-            try {
-                document.getElementById("result").value = eval(document.getElementById("result").value);
-            } catch (e) {
-                alert('Invalid expression');
-                clearResult();
-            }
-        }
-    </script>
 </body>
 
 </html>
